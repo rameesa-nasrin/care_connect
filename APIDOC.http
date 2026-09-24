@@ -1,0 +1,44 @@
+#===================DOCTORS===============
+#api call for listing doctors
+###
+GET http://127.0.0.1:8000/doctors/
+Accept: application/json
+
+
+#api call for creating a doctor
+###
+POST http://127.0.0.1:8000/doctors/
+Content-Type: application/json
+
+{
+    "name":"chithra",
+    "specialization":"cardiology",
+    "fee":1000,
+    "qualification":"mbbs",
+    "email":"chthra@gmail.com"
+}
+
+
+#api call for fetching doctor
+###
+GET http://127.0.0.1:8000/doctors/2/
+Accept: application/json
+
+#api call for updating doctor
+###
+PUT http://127.0.0.1:8000/doctors/2/
+Content-Type: application/json
+
+{
+    "name":"chithra",
+    "specialization":"cardiology",
+    "fee":2000,
+    "qualification":"mbbs",
+    "email":"chiithra@gmail.com"
+}
+
+#api call for deleting doctor
+###
+DELETE http://127.0.0.1:8000/doctors/2/
+Accept: application/json
+
