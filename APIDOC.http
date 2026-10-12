@@ -1,8 +1,10 @@
-#===================DOCTORS===============
+#===================DOCTORS===============================
 #api call for listing doctors
 ###
 GET http://127.0.0.1:8000/doctors/
 Accept: application/json
+
+
 
 
 #api call for creating a doctor
@@ -21,8 +23,10 @@ Content-Type: application/json
 
 #api call for fetching doctor
 ###
-GET http://127.0.0.1:8000/doctors/2/
+GET http://127.0.0.1:8000/doctors/3/
 Accept: application/json
+
+
 
 #api call for updating doctor
 ###
@@ -42,3 +46,141 @@ Content-Type: application/json
 DELETE http://127.0.0.1:8000/doctors/2/
 Accept: application/json
 
+
+
+# v2 api calls====================================================
+#api call for listing doctors
+###
+GET http://127.0.0.1:8000/v2/doctors/
+Accept: application/json
+Authorization: Basic adminuser:adminuser
+
+
+#api call for creating a doctor
+###
+POST http://127.0.0.1:8000/v2/doctors/
+Content-Type: application/json
+Authorization: Basic adminuser:adminuser
+{
+    "name":"chithra",
+    "specialization":"ardiology",
+    "fee":1000,
+    "qualification":"mbbs",
+    "email":"chiii@gmail.com"
+}
+
+#api call for fetching doctor
+###
+GET http://127.0.0.1:8000/v2/doctors/1/
+Accept: application/json
+Authorization: Basic adminuser:adminuser
+
+
+#api call for updating doctor
+###
+PUT http://127.0.0.1:8000/doctors/3/
+Content-Type: application/json
+Authorization: Basic adminuser:adminuser
+
+{
+    "name":"chithira",
+    "specialization":"cardiology",
+    "fee":2000,
+    "qualification":"mbbs",
+    "email":"chthra@gmail.com"
+}
+
+
+#api call for creating admin user
+###
+post http://127.0.0.1:8000/v2/admin-register/
+Content-Type: application/json
+
+{
+    "username":"user",
+    "email":"user@gmail.com",
+    "password":"user"
+}
+
+
+#appointment api calls ===================================
+
+#api call for listing appointments
+###
+GET http://127.0.0.1:8000/appointments/
+Accept: application/json
+Authorization: Basic adminuser:adminuser
+
+#api call for booking token
+###
+POST http://127.0.0.1:8000/appointments/
+Content-Type: application/json
+Authorization: Basic adminuser:adminuser
+
+{
+    "patient_name":"sravan",
+    "phone":"01199393993",
+    "doctor":3,
+    "appointment_date":"2026-10-17",
+    "problem":"coughing"
+}
+
+#api call to add new user
+###
+POST http://127.0.0.1:8000/v2/booking/signup/
+Content-Type: application/json
+
+{
+    "username":"user1",
+    "email":"user@gmail.com",
+    "password":"pass123"
+}
+
+
+#appointment v2 api calls =====================================
+
+#api call for listing appointments
+###
+GET http://127.0.0.1:8000/v2/booking/appointments/
+Accept: application/json
+Authorization: Basic user:user
+
+
+#for booking an appointment
+###
+POST http://127.0.0.1:8000/v2/booking/appointments/
+Content-Type: application/json
+Authorization: Basic user:user
+
+{
+     "patient_name":"alen",
+    "phone":"0119722223",
+    "doctor":3,
+    "appointment_date":"2026-10-10",
+    "problem":"fever"
+}
+
+#api call for fetching appointment
+###
+GET http://127.0.0.1:8000/v2/booking/appointments/26/
+Accept: application/json
+Authorization: Basic user:user
+
+
+#Aapi call for updating appointment
+###
+PUT http://127.0.0.1:8000/v2/booking/appointments/19/
+Content-Type: application/json
+Authorization: Basic user:user
+
+{
+    "id": 19,
+    "patient_name": "sibin paul",
+    "phone": "0119722223",
+    "appointment_date": "2026-11-05",
+    "token_number": 5,
+    "appointment_time": "11:00:00",
+    "problem": "tonsilitis",
+    "created_at": "2026-10-08T06:47:57.316661Z",
+    "doctor": 1
+  }

@@ -38,7 +38,7 @@ class Doctor(models.Model):
 
     email = models.EmailField(unique=True)
 
-def __str__(self):   #to print name of a doctor easily .it is the sting representation of object of this model
+    def __str__(self):   #to print name of a doctor easily .it is the sting representation of object of this model
 
-  return self.name
+        return self.name
 
